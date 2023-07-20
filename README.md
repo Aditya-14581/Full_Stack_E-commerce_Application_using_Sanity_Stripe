@@ -1,6 +1,15 @@
 # Full Stack ECommerce Application with Stripe & Sanity
 
-This is a fully responsive modern full-stack E-commerce application with payments functionality. The application includes a modern design, animations, and the ability to add and edit products on the go using a Content Management System (CMS). It also provides advanced cart functionalities and complete integration with Stripe for real payments. This project is considered one of the best E-commerce website projects available on YouTube.
+This is a fully responsive modern full-stack E-commerce application with payments functionality. The application includes a modern design, animations, and the ability to add and edit products on the go using a Content Management System (CMS). It also provides advanced cart functionalities and complete integration with Stripe for real payments.
+
+## Screenshots
+
+![image](https://github.com/Aditya-14314581/Full_Stack_E-commerce_Application_using_Sanity_Stripe/assets/122261389/0dc425ca-781a-44d4-9111-4beb0aa6bcde)
+
+![image](https://github.com/Aditya-14314581/Full_Stack_E-commerce_Application_using_Sanity_Stripe/assets/122261389/23a8953d-45c7-4391-9191-15479e122378)
+
+![image](https://github.com/Aditya-14314581/Full_Stack_E-commerce_Application_using_Sanity_Stripe/assets/122261389/921bfba7-2fbf-4c3e-9c32-e68f546c698e)
+
 
 ## Technologies Used
 
