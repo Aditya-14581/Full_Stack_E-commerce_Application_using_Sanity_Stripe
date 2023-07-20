@@ -40,6 +40,3 @@ To run the application locally, follow these steps:
 5. Build and start the development server: `npm run dev`
 6. Open your browser and visit `http://localhost:3000` to view the application.
 
-## Conclusion
-
-This project showcases the development of a feature-rich E-commerce application using a modern tech stack. By following React, Next.js, Stripe, and Sanity best practices, you have learned advanced techniques for building scalable and optimized web applications. The integration of Stripe ensures secure payments, while Sanity simplifies content management, allowing for easy updates to the application's content. Feel free to explore and customize this project further to suit your specific E-commerce requirements.
