@@ -1,0 +1,10 @@
+{
+  "api": {
+    "projectId": "df9fd2ci",
+    "dataset": "production"
+  },
+  "plugins": ["@sanity/desk-tool"],
+  "schema": {
+    "types": []
+  }
+}

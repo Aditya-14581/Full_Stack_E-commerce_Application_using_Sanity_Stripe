@@ -11,7 +11,7 @@ import getStripe from '../lib/getStripe';
 const Cart = () => {
   const cartRef = useRef();
   const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuanitity, onRemove } = useStateContext();
-
+  
   const handleCheckout = async () => {
     const stripe = await getStripe();
 
@@ -20,25 +20,32 @@ const Cart = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(cartItems),
+      // Make sure to wrap cartItems in an object
+      body: JSON.stringify({ cartItems }), // this will send cartItems inside an object
     });
 
-    if(response.statusCode === 500) return;
-    
+    if (response.status === 500) return;
+
     const data = await response.json();
 
     toast.loading('Redirecting...');
 
-    stripe.redirectToCheckout({ sessionId: data.id });
-  }
+    // Make sure you have a valid session id in the response
+    if (data.id) {
+      stripe.redirectToCheckout({ sessionId: data.id });
+    } else {
+      toast.error("Error creating checkout session");
+    }
+  };
+
 
   return (
     <div className="cart-wrapper" ref={cartRef}>
       <div className="cart-container">
         <button
-        type="button"
-        className="cart-heading"
-        onClick={() => setShowCart(false)}>
+          type="button"
+          className="cart-heading"
+          onClick={() => setShowCart(false)}>
           <AiOutlineLeft />
           <span className="heading">Your Cart</span>
           <span className="cart-num-items">({totalQuantities} items)</span>
@@ -71,13 +78,13 @@ const Cart = () => {
                 </div>
                 <div className="flex bottom">
                   <div>
-                  <p className="quantity-desc">
-                    <span className="minus" onClick={() => toggleCartItemQuanitity(item._id, 'dec') }>
-                    <AiOutlineMinus />
-                    </span>
-                    <span className="num" onClick="">{item.quantity}</span>
-                    <span className="plus" onClick={() => toggleCartItemQuanitity(item._id, 'inc') }><AiOutlinePlus /></span>
-                  </p>
+                    <p className="quantity-desc">
+                      <span className="minus" onClick={() => toggleCartItemQuanitity(item._id, 'dec')}>
+                        <AiOutlineMinus />
+                      </span>
+                      <span className="num" onClick="">{item.quantity}</span>
+                      <span className="plus" onClick={() => toggleCartItemQuanitity(item._id, 'inc')}><AiOutlinePlus /></span>
+                    </p>
                   </div>
                   <button
                     type="button"
